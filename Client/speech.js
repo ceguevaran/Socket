@@ -48,8 +48,7 @@ $(document).ready(function() {
 
             if(finalTranscript.length > 0) {
                 socket.emit('information', {
-                    'finalTranscript': finalTranscript,
-                    'sessionId': socket.socket.sessionId
+                    'finalTranscript': finalTranscript
                 });
                 console.log("final:    " + finalTranscript);
                 $('#transcript').html(finalTranscript);

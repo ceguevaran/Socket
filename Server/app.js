@@ -11,6 +11,7 @@ var led;
 app.listen(8001);
 board.on("ready", function() {
   console.log("The board is ON");
+  led = new five.Led(13);
 });
 
 
@@ -44,15 +45,16 @@ io.on('connection', function (socket) {
   socket.emit('news', "Saludos desde el servidor 8001");
 
   socket.on('information', function (data) {
-    console.log("Session ID: " + data.sessionId);
+
     speechText = data.finalTranscript;
-    console.log(speechText);
-    led = new five.Led(13);
+    console.log("El texto identificado es: " + speechText);
+    
     if(speechText == "prender"){
-      led.blink();
+      led.on();
     }else if(speechText == "apagar"){
-      console.log("AQUI")
-      led.stop();
+      led.stop().off();
+    }else if(speechText.split(" ")[0] == "parpadear"){
+      led.blink()
     }
   });
 });
