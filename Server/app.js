@@ -10,7 +10,7 @@ var led;
 
 app.listen(8001);
 board.on("ready", function() {
-  console.log("speechText");
+  console.log("The board is ON");
 });
 
 
@@ -39,9 +39,10 @@ function handler (req, res) {
 };
 
 io.on('connection', function (socket) {
-  var x = "Saludos desde el servidor 8001";
-  console.log('a user connected');
-  socket.emit('news', x);
+
+  console.log('A user connected');
+  socket.emit('news', "Saludos desde el servidor 8001");
+
   socket.on('information', function (data) {
     console.log("Session ID: " + data.sessionId);
     speechText = data.finalTranscript;
