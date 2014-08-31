@@ -1,0 +1,18 @@
+#controls {
+  text-align: center;
+}
+#start_button {
+  font-size: 16pt;
+}
+#transcript {
+  color: darkred;
+  font-size: 16pt;
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+#instructions {
+  color: darkblue;
+  font-size: 14pt;
+  text-align: center;
+}
